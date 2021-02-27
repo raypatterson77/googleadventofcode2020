@@ -37,8 +37,6 @@ def getTreeNumber(areaLines, treeCounter):
     """
     counter = 0
     for line in areaLines:
-        print(line)
-        print(counter)
         if (line[counter] == '#'):
             treeCounter +=1
         counter += 3
