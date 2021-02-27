@@ -1,34 +1,34 @@
 #!/usr/bin/python3
 
 """
-thx @ https://github.com/Maschamagin for the indication 
+thx @ https://github.com/Maschamagin for the indication
 """
 
-def readFile(filePath):
+def read_file(file_path):
     """Read the content of a passed file as string and strip each line
 
     Return filecontent as list
     """
-    
-    with open(filePath) as fileContent:
-        content = fileContent.readlines()
+
+    with open(file_path) as file_content:
+        content = file_content.readlines()
         content = [c.strip() for c in content]
         return content
 
-def getLineNumber(areaLines):
+def get_line_number(area_lines):
     """Get the number of lines and the length of each line
 
     Because all lines have equal length, check length of line for 1. Line
-    print 
-    The Values are just for the input inspection and not necessary 
-    to solve the challenge 
+    print
+    The Values are just for the input inspection and not necessary
+    to solve the challenge
     """
 
-    lineNumber = len(areaLines)
-    lineLength = len(areaLines[0])
-    return lineNumber, lineLength
+    line_number = len(area_lines)
+    line_length = len(area_lines[0])
+    return line_number, line_length
 
-def getTreeNumber(areaLines, treeCounter):
+def get_tree_number(area_lines, tree_counter):
     """Go through each line and check if position is a tree
 
     each line is one step down
@@ -36,24 +36,24 @@ def getTreeNumber(areaLines, treeCounter):
     if counter is equal or greater 31 set counter -31 to get all three cases
     """
     counter = 0
-    for line in areaLines:
-        if (line[counter] == '#'):
-            treeCounter +=1
+    for line in area_lines:
+        if line[counter] == '#':
+            tree_counter +=1
         counter += 3
-        if (counter >= 31):
+        if counter >= 31:
             counter -= 31
-        
-    return treeCounter
+    return tree_counter
 
 def main():
-    filePath = ('input.txt')
-    treeCounter = 0
-    areaLines = readFile(filePath)
-    lineNumber, lineLength = getLineNumber(areaLines)
-    treeCounter = getTreeNumber(areaLines, treeCounter)
-    print(lineNumber)
-    print(lineLength)
-    print(treeCounter)
+    file_path = ('input.txt')
+    tree_counter = 0
+    area_lines = read_file(file_path)
+    line_number, line_length = get_line_number(area_lines)
+    tree_counter = get_tree_number(area_lines, tree_counter)
+    print(line_number)
+    print(line_length)
+    print(tree_counter)
 
 if __name__ == '__main__':
     main()
+    
